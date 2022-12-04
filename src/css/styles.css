@@ -1,0 +1,798 @@
+/*////////////////////////
+    Table of Contents
+    1. Global Styles
+    2. Typography
+    3. Layout
+        3.1 Reusable
+        3.2 Other
+    4. Areas
+        4.1 Header
+        4.2 Introduction
+        etc.
+    5. Media Queries
+////////////////////////*/
+
+/* ------------------------------- 1. Global Styles -------------------------------- */
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper {
+    width: 1920px;
+    height: auto;
+}
+.outer-container {
+    width: 100%;
+    height: auto;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+}
+
+.inner-container {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.input-choice {
+    width: 160px;
+    height: 44px;
+    border-radius: 3px;
+    padding: 0 20px 0 20px;
+}
+
+a:link { text-decoration: none;
+         color: black;
+}
+a:visited { text-decoration: none;
+            color: black;
+}
+
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
+/* ------------------------------- 2. Typography ----------------------------------- */
+@font-face {
+    font-family: Poppins;
+    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: Poppins-bold;
+    src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf");
+}
+
+@font-face {
+    font-family: Poppins-Medium;
+    src: url("../../assets/fonts/Poppins/Poppins-Medium.ttf");
+}
+
+@font-face {
+    font-family: Poppins-thin;
+    src: url("../../assets/fonts/Poppins/Poppins-Thin.ttf");
+}
+
+@font-face {
+    font-family: Poppins-light;
+    src: url("../../assets/fonts/Poppins/Poppins-Light.ttf");
+}
+
+@font-face {
+    font-family: Austein;
+    src: url("../../assets/fonts/Austein/Austein.ttf");
+}
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+/* --------------- 3.1 Reusable ----------------------- */
+
+
+.glass {
+    background-image: url("../../assets/icons/instagram.svg");
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    float: right;
+    margin-right: 20px;
+}
+
+.recipe-card {
+    height: 280px;
+    width: 380px;
+    border: 1px solid #cfcfcf;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 5px #ececec;
+    font-size: 16px;
+    margin: 0 0 24px 0;
+    overflow: hidden;
+    transition: 0.3s;
+
+}
+
+.recipe-card:hover {
+    transform: scale(1.2);
+}
+
+.recipe-card__image {
+    height: 194px;
+    width: 380px;
+    background-color: cadetblue;
+    overflow: hidden;
+}
+
+.recipe-card__info {
+    height: 86px;
+    width: 100%;
+    padding:24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+
+.recipe-card__title {
+    width: 100%;
+    font-family: Poppins-bold, sans-serif;
+    font-size: 16px;
+    margin: 0 0 16px 0;
+}
+
+.recipe-property {
+    width: 100%;
+    hight: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.recipe-property__line {
+    display: flex;
+    flex-direction: row;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+}
+
+.recipe-property__cal {
+    display: flex;
+    flex-direction: row;
+}
+
+.value {
+    font-family: Poppins-bold, sans-serif;
+}
+
+.dimension {
+    font-family: Poppins, sans-serif;
+    margin: 0 0 0 4px;
+}
+
+.recipe-property__line span {
+    margin: 0 4px;
+}
+
+.recipe-property__ingredients {
+    display: flex;
+    /*flex-direction: row;*/
+}
+
+.recipe-property__time {
+    display: flex;
+    flex-direction: row;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.time-icon {
+    font-size: inherit;
+    margin: 0 10px 0 0;
+    width: 14px;
+    height: 14px;
+
+}
+
+.time-icon img {
+   width: 100%;
+   height: 100%;
+}
+
+
+/* --------------- 3.2 Other --------------------------- */
+/* --------------- 3.2.1 Recipe-page --------------------------- */
+.recipe-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin:100px 0 74px 0;
+
+}
+.recipe-name-place {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 24px;
+
+}
+.page-title {
+    font-family: Poppins-bold, sans-serif;
+    font-size: 32px;
+    line-height: 100%;
+    color: #283E53;
+    margin: 0 30px 0 0;
+}
+
+.page-title-time {
+
+    color: #283E53;
+    font-size: 22px;
+
+}
+
+.page-title-time__value {
+    font-family: Poppins-Medium, sans-serif;
+}
+
+.page-title-time__icon {
+    width: 100%;
+    height: 100%;
+    margin: 0 17px 0 0;
+}
+
+.page-subtitle {
+    font-family: Poppins-Medium, sans-serif;
+    font-size: 24px;
+    line-height: 150%;
+    margin: 0 0 14px 0;
+    color: #283E53;
+}
+
+.recipe-content {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.recipe-content__left {
+    width: 450px;
+    height: auto;
+}
+
+.recipe-content__right {
+    width: 400px;
+    height: auto;
+
+}
+
+
+
+.ingredients-list {
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    color: #283e53;
+    line-height: 150%;
+    margin: 28px 0 40px 0;
+
+
+}
+
+.ingredients-list li {
+    margin-bottom: 16px;
+}
+
+.ingredients-list li:before {
+    content:"·";
+    font-size:80px;
+    color: #283E53;
+    vertical-align: middle;
+    line-height: 16px;
+    margin: 10px;
+    padding-right: 10px;
+}
+
+.health-labels {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.health-labels__place {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.health-labels__item {
+    background-color: #70b6be;
+    color: #283E53;
+    border: 2px solid #283E53;
+    border-radius: 16px;
+    margin: 0 8px 8px 0;
+}
+
+.health-labels__item p {
+    font-family: Poppins-bold, sans-serif;
+    color: #283e53;
+    font-size: 12px;
+    line-height: 210%;
+    margin: 0 12px;
+}
+
+.recipe-content__right {
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-image {
+    width: 400px;
+    height: 400px;
+    margin: 0 0 58px 0;
+    background-color: purple;
+}
+
+.recipe-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nutrients-table {
+    width: 100%;
+    height: auto;
+    padding-right: 14px;
+    margin-top: -5px;
+}
+td[colspan="1"] {
+    text-align: left;
+    width: 80%;
+}
+
+
+td[colspan="2"] {
+    text-align: right;
+    padding-right: 20px;
+}
+
+td[colspan="3"] {
+    text-align: left;
+}
+
+
+
+
+tbody {
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    color: black;
+    line-height: 200%;
+}
+
+tfoot {
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    color: black;
+    line-height: 200%;
+}
+
+
+
+
+
+
+
+
+
+/* ------------------------------- 4. Areas ---------------------------------------- */
+
+/* --------------- 4.1 Header ------------------------- */
+
+header {
+    background-color: #EEEEEE;
+}
+
+.header-content {
+    width: 100%;
+    height: 92px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo{
+    font-family: Austein, sans-serif;
+    font-size: 30pt;
+}
+
+.header__menu {
+    width: 280px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header__menu li {
+    display: inline;
+    font-family: Poppins-bold, sans-serif;
+    font-size: 12pt;
+
+}
+
+
+
+
+/* --------------- 4.2 Main ------------------- */
+/*---------------- Section Intro -------------*/
+
+.intro {
+    width: 100%;
+    height: 600px;
+    background-image: url("../../assets/hero-image.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.intro-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.intro-title {
+    font-size: 48pt;
+    font-family: Poppins-bold, sans-serif;
+    color: white;
+    line-height: 80px;
+
+}
+
+.intro-subtitle {
+    font-size: 48pt;
+    font-family: Poppins-light, sans-serif;
+    color: white;
+    line-height: 80px;
+
+}
+
+.search-button {
+    height: 45px;
+    width: 183px;
+    margin-top: 30px;
+    font-family: Poppins-bold, sans-serif;
+    font-size: 12pt;
+    text-align: left;
+    padding-left: 20px;
+    background-color: cadetblue;
+    border: none;
+    border-radius: 3px;
+
+    background-image: url("../../assets/icons/instagram.png");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 140px;
+}
+
+/*-------------- Section Recipe-pictures -----------------*/
+
+
+.recipe-pictures {
+    width: 1200px;
+    height: 330px;
+    margin: 0 auto;
+
+}
+
+.picture-cards-place {
+    margin-top: -40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+
+
+
+    /*--------- Section  Recipe-Search -----------------------*/
+
+
+.search-section {
+    background-color: #283E53;
+    height: 126px;
+    width: 100%;
+}
+
+.search-bar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.search-form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+input {
+    color: initial;
+    display: inline-block;
+    text-align: start;
+    background-color: white;
+    cursor: text;
+    font: 400 16px Poppins, sans-serif;
+    /*padding: 0 20px;*/
+    border-width: 0;
+    border-style: inset;
+    border-color: initial;
+}
+
+
+.input-search {
+    width: 280px;
+    background-image: url("../../assets/icons/instagram.svg");
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    /*float: right;*/
+    background-position: 240px;
+}
+
+.input-barcode {
+    border: 1px solid #283E53;
+    /*margin-right: 24px;*/
+}
+
+select {
+    color:#283E53;
+    display: inline-block;
+    white-space: pre;
+    background-color: white;
+    cursor: default;
+    font: 400 16px Poppins, sans-serif;
+    border-width: 0;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+
+}
+
+.search-recipes-btn {
+    width: 160px;
+    height: 44px;
+    text-align: left;
+    padding-left: 20px;
+    font: 400 16px Poppins, sans-serif;
+    background-color: #70B6BE;
+    border-radius: 3px;
+
+    background-image: url("../../assets/icons/instagram.png");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 120px;
+}
+
+
+
+/*---------- Section Recipe-Cards --------------------*/
+
+.recipe-cards-place {
+    width: 100%;
+    height: 700px;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+
+}
+
+
+
+
+
+
+/*---------------- 4.3 Footer ----------------*/
+
+ footer {
+    width: 100%;
+    background-color: #283E53;
+}
+
+.footer-info {
+    width: 920px;
+    height: 270px;
+    padding: 46px 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+
+}
+
+.footer-info__card {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+}
+
+.footer-info__title {
+    font-family: Poppins-bold, sans-serif;
+    font-size: 16px;
+    color: cadetblue;
+    margin: 10px 0 24px 0;
+}
+
+.footer-info__list {
+    font-family: Poppins-light, sans-serif;
+    font-size: 14px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    line-height: 32px;
+}
+
+.social-icons {
+    width: 160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #70B6BE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*-------------------------- 3.2.2 Calorie calculator ---------------------------*/
+
+.calculator {
+    width: 450px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator-title {
+    width: 100%;
+    height: 40px;
+    font-family: Poppins-bold, sans-serif;
+    font-size: 24pt;
+    color: #283e53;
+    margin: 100px 0 40px 0;
+}
+.barcode-search {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+}
+
+.search-barcode-btn {
+    width: 136px;
+    border: 1px solid #283e53;
+    background-image: url("../../assets/icons/instagram.png");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 90px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+
+
+
+
+
+thead {
+    font-family: Poppins-bold, sans-serif;
+    font-size: 16px;
+    color: black;
+    line-height: 200%;
+}
+
+.product-table {
+    margin-bottom: 50px;
+}
+
+.product-table th, .product-table td {
+    text-align: left;
+    background-color: #70b6be;
+    padding: 0 4px;
+}
+
+.product-table th:nth-child(2){text-align: center}
+.product-table td:nth-child(2){text-align: center}
+.product-table th:nth-child(3){text-align: center}
+.product-table td:nth-child(3){text-align: center}
+
+.amount-form {
+    width: 100%;
+    hight: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Poppins,sans-serif;
+    font-size: 16px;
+    margin-bottom: 70px;
+
+}
+
+.amount-field {
+    width: 120px;
+    border: 1px solid #283e53;
+}
+
+.add-button {
+    width: 100px;
+    background-image: none;
+}
+
+.total-table {
+    width: 100%;
+    margin-bottom: 50px;
+    border-spacing: 0;
+}
+
+.total-table th:nth-child(1) {text-align: left}
+.total-table th:nth-child(2) {text-align: right}
+.total-table th:nth-child(3) {text-align: right}
+.total-table th:nth-child(4) {text-align: right}
+
+.total-table td:nth-child(1) {text-align: left}
+.total-table td:nth-child(2) {text-align: right}
+.total-table td:nth-child(3) {text-align: right}
+.total-table td:nth-child(4) {text-align: right}
+
+
+.total-table tfoot td {
+    border-top: 1px solid #000;
+    padding-top: 16px;
+}
+
+.line3 {
+    padding-bottom: 10px;
+}
+/* ------------------------------- 5. Media Queries -------------------------------- */

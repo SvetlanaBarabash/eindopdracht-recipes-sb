@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!--<link rel="stylesheet" href="fonts.css">-->
+    <script src="main.js" type="module" defer></script>
+    <title>The Clueless Cook</title>
+</head>
+<body>
+<div class="wrapper">
+    <!-- Here is our main header that is used across all the pages of our website -->
+    <header class="outer-container">
+        <div class="inner-container">
+            <div class="header-content">
+                <div class="header__logo">
+                    <p>The Clueless Cook</p>
+                </div>
+                <nav class="header__inner-container">
+                    <ul class="header__menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Calculator</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+<main>
+    <div class="outer-container">
+        <div class="inner-container">
+            <section class="calculator">
+        <div class="calculator-title">
+            <h1>Calorie Calculator</h1>
+        </div>
+        <div class="barcode-search">
+        <input id="barcode-product" type="search" name="search" placeholder="Barcode/Product" class="input-choice input-search input-barcode">
+        <button type="submit" class="search-recipes-btn search-barcode-btn">Search</button>
+        </div>
+        <table class="product-table">
+            <colgroup>
+                <col span="1" style="width: 40%">
+                <col span="2" style="width: 30%" >
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Label</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mars</td>
+                    <td>60</td>
+                    <td>Gram</td>
+                </tr>
+            </tbody>
+        </table>
+    <div>
+        <form class="amount-form">
+            <label for="amount">Amount</label>
+            <input class="input-choice amount-field" type="number" id="amount" name="amount" size="20">
+            <label for="servings" id="servings">Serving(s)</label>
+            <button type="submit" class="search-recipes-btn add-button">+ Add</button>
+        </form>
+    </div>
+        <div>
+        <table class="total-table">
+            <colgroup>
+                <col span="4" style="width: 25%">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Calories</th>
+                    <th>Fat</th>
+                    <th>Carbs</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Milk</td>
+                    <td>149 cal</td>
+                    <td>8 g</td>
+                    <td>12 g</td>
+                </tr>
+                <tr >
+                    <td class="line3">Mars</td>
+                    <td class="line3">234 cal</td>
+                    <td class="line3">12 g</td>
+                    <td class="line3">31 g</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Total</td>
+                    <td>383 cal</td>
+                    <td>20 g</td>
+                    <td>43 g</td>
+                </tr>
+            </tfoot>
+        </table>
+        </div>
+            </section>
+        </div>
+    </div>
+</main>
+<!-- Here is our footer that is used across all the pages of our website -->
+<footer class="outer-container">
+    <section class="footer-section">
+        <div class="inner-container">
+            <div class="footer-info">
+                <div class="footer-info__card">
+                    <div class="footer-info__title">
+                        <h3>Information</h3>
+                    </div>
+                    <div class="footer-info__list">
+                        <p>Nullam a enim</p>
+                        <p>Quisque cursus</p>
+                        <p>Cras egestas</p>
+                        <p>Nunk vitae</p>
+                    </div>
+                </div>
+                <div class="footer-info__card">
+                    <div class="footer-info__title">
+                        <h3>About</h3>
+                    </div>
+                    <div class="footer-info__list">
+                        <p>Quisque cursus</p>
+                        <p>Cras egestas</p>
+                        <p>Nunk vitae</p>
+                        <a href></a>
+                    </div>
+                </div>
+                <div class="footer-info__card">
+                    <div class="footer-info__title">
+                        <h3>Contact</h3>
+                    </div>
+                    <div class="footer-info__list">
+                        <p>Cras egestas</p>
+                        <p>Nunk vitae</p>
+                        <p>Nullam a enim</p>
+                        <a href></a>
+                    </div>
+                </div>
+                <div class="footer-info__card">
+                    <div class="footer-info__title">
+                        <h3>Social</h3>
+                    </div>
+                    <div class="footer-info__list">
+                        <div class="social-icons">
+                            <div class="icon"><a href="#"></a><img src="../assets/icons/facebook.svg" alt="facebook"></div>
+                            <div class="icon"><a href="#"></a><img src="../assets/icons/instagram.svg" alt="instagram"></div>
+                            <div class="icon"><a href="#"></a><img src="../assets/icons/linkedin.svg" alt="linkedin"></div>
+                            <div class="icon"><a href="#"></a><img src="../assets/icons/twitter.svg" alt="twitter"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+    </section>
+</footer>
+</div> <! --Wrapper-->
+</body>
+</html>

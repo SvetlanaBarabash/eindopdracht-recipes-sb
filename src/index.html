@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!--<link rel="stylesheet" href="fonts.css">-->
+    <script src="main.js" type="module" defer></script>
+    <title>The Clueless Cook</title>
+</head>
+<body>
+<div class="wrapper">
+    <!-- Here is our main header that is used across all the pages of our website -->
+    <header class="outer-container">
+        <div class="inner-container">
+            <div class="header-content">
+                <div class="header__logo">
+                    <p>The Clueless Cook</p>
+                </div>
+                <nav class="header__inner-container">
+                    <ul class="header__menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="calculator.html">Calculator</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="outer-container">
+        <section class="intro">
+             <div class="inner-container">
+                 <div class="intro-content">
+                     <h1 class="intro-title">Delicious Recipes.</h1>
+                     <div class="intro-subtitle">Daily Updated.</div>
+                     <button type="button" class="search-button">Find Recipes</button>
+                 </div>
+             </div>
+        </section>
+        <section class="recipe-pictures">
+<!--             <div class="inner-container">-->
+                 <div class="picture-cards-place">
+                     <a class="recipe-card" href="recipe.html">
+                         <div class="recipe-card__image">
+                             <img src="#" alt="card image">
+                         </div>
+                         <div class="recipe-card__info">
+                             <div class="recipe-card__title">Recipe Title</div>
+                                 <div class="recipe-property">
+                                     <div class="recipe-property__line">
+                                         <div class="value">300</div>
+                                         <div class="dimension">Calories</div>
+                                         <span>|</span>
+                                         <div class="value">10</div>
+                                         <div class="dimension">Ingredients</div>
+                                     </div>
+                                     <div class="recipe-property__time">
+                                         <div class="time-icon">
+                                             <img src="../assets/icons/time.svg" alt="clock">
+                                         </div>
+                                         <div class="value">20</div>
+                                         <div class="dimension">min.</div>
+                                     </div>
+                                 </div>
+                         </div>
+                        </a>
+                     <a class="recipe-card" href="recipe.html">
+                         <div class="recipe-card__image">
+                             <img src="#" alt="card image">
+                         </div>
+                         <div class="recipe-card__info">
+                             <div class="recipe-card__title">Recipe Title</div>
+                                 <div class="recipe-property">
+                                     <div class="recipe-property__line">
+                                         <div class="value">300</div>
+                                         <div class="dimension">Calories</div>
+                                         <span>|</span>
+                                         <div class="value">10</div>
+                                         <div class="dimension">Ingredients</div>
+                                     </div>
+                                     <div class="recipe-property__time">
+                                         <div class="time-icon">
+                                             <img src="../assets/icons/time.svg" alt="clock">
+                                         </div>
+                                         <div class="value">20</div>
+                                         <div class="dimension">min.</div>
+                                     </div>
+                                 </div>
+                         </div>
+                        </a>
+                     <a class="recipe-card" href="recipe.html">
+                         <div class="recipe-card__image">
+                             <img src="#" alt="card image">
+                         </div>
+                         <div class="recipe-card__info">
+                             <div class="recipe-card__title">Recipe Title</div>
+                                 <div class="recipe-property">
+                                     <div class="recipe-property__line">
+                                         <div class="value">300</div>
+                                         <div class="dimension">Calories</div>
+                                         <span>|</span>
+                                         <div class="value">10</div>
+                                         <div class="dimension">Ingredients</div>
+                                     </div>
+                                     <div class="recipe-property__time">
+                                         <div class="time-icon">
+                                             <img src="../assets/icons/time.svg" alt="clock">
+                                         </div>
+                                         <div class="value">20</div>
+                                         <div class="dimension">min.</div>
+                                     </div>
+                                 </div>
+                         </div>
+                        </a>
+                 </div>
+<!--             </div>-->
+        </section>
+        <section class="search-section">
+            <div class="search-bar">
+                <div class="inner-container">
+                    <form name="recipeSearchForm" action="#" method="get" class="search-form">
+<!--                    <div class="ingredients-field">-->
+<!--                        <label for="search-ingredients"></label>-->
+                        <input id="search-ingredients" type="search" name="search" placeholder="Search ingredients" class="input-choice input-search">
+<!--                    </div>-->
+<!--                    <div class="search-fields">-->
+<!--                        <label for="meal-type-field"></label>-->
+                            <select title="meal-type" name="meal-type-field" id="meal-type-field" class="input-choice">
+                                <option selected value="">Meal type</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Snack">Snack</option>
+                                <option value="Teatime">Teatime</option>
+                            </select>
+<!--                            <label for="cuisine-field"></label>-->
+                            <select title="cuisine" name="cuisine-field" id="cuisine-field" class="input-choice">
+                                <option selected value="">Cuisine</option>
+                                <option value="Italian">Italian</option>
+                                <option value="French">French</option>
+                                <option value="Asia">Asia</option>
+                                <option value="Africa">Africa</option>
+                                <option value="Middle East">Middle East</option>
+                            </select>
+<!--                            <label for="diet-field"></label>-->
+                            <select name="diet-field" id="diet-field" class="input-choice">
+                                <option selected value="">Diet</option>
+                                <option value="Gluten free">Gluten free</option>
+                                <option value="Low Carb">Low Carb</option>
+                                <option value="Vegan">Vegan</option>
+                                <option value="Paleo diet">Paleo diet</option>
+                                <option value="Teatime">Teatime</option>
+                            </select>
+<!--                            <label for="time-field"></label>-->
+                            <select name="time-field" id="time-field" class="input-choice">
+                                <option selected value="">Time</option>
+                                <option value="15">15 min</option>
+                                <option value="20">20 min</option>
+                                <option value="30">30 min</option>
+                                <option value="45">45 min</option>
+                                <option value="60">60 min</option>
+                            </select>
+
+<!--                    <div class="button-field">-->
+                        <button id="search-recipes" type="submit" class="search-recipes-btn">Search</button>
+<!--                    </div>-->
+                    </form>
+                </div>
+            </div>
+<!--            </div>-->
+
+        </section>
+        <section class="recipe-card-section">
+            <div class="inner-container">
+                <div id="recipe-card-list" class="recipe-cards-place"></div>
+            </div>
+        </section>
+    </main>
+    <!-- Here is our footer that is used across all the pages of our website -->
+    <footer class="outer-container">
+        <div class="inner-container">
+            <div class="footer-info">
+            <div class="footer-info__card">
+                <div class="footer-info__title">
+                    <h3>Information</h3>
+                </div>
+                <div class="footer-info__list">
+                        <p>Nullam a enim</p>
+                        <p>Quisque cursus</p>
+                        <p>Cras egestas</p>
+                        <p>Nunk vitae</p>
+                </div>
+            </div>
+            <div class="footer-info__card">
+                <div class="footer-info__title">
+                    <h3>About</h3>
+                </div>
+                <div class="footer-info__list">
+                        <p>Quisque cursus</p>
+                        <p>Cras egestas</p>
+                        <p>Nunk vitae</p>
+                        <a href></a>
+                </div>
+            </div>
+            <div class="footer-info__card">
+                <div class="footer-info__title">
+                    <h3>Contact</h3>
+                </div>
+                <div class="footer-info__list">
+                        <p>Cras egestas</p>
+                        <p>Nunk vitae</p>
+                        <p>Nullam a enim</p>
+                        <a href></a>
+                </div>
+            </div>
+            <div class="footer-info__card">
+                <div class="footer-info__title">
+                    <h3>Social</h3>
+                </div>
+                <div class="footer-info__list">
+                    <div class="social-icons">
+                        <div class="icon"><a href="#"></a><img src="../assets/icons/facebook.svg" alt="facebook"></div>
+                        <div class="icon"><a href="#"></a><img src="../assets/icons/instagram.svg" alt="instagram"></div>
+                        <div class="icon"><a href="#"></a><img src="../assets/icons/linkedin.svg" alt="linkedin"></div>
+                        <div class="icon"><a href="#"></a><img src="../assets/icons/twitter.svg" alt="twitter"></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </footer>
+    </div>
+</body>
+</html>
