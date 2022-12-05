@@ -580,8 +580,8 @@ function createRecipeCard(recipe) {
                     </div>
                     <div class="recipe-property__time">
                         <div class="time-icon">
-                            <img src="../assets/icons/time.svg" alt="clock">
-                        </div>
+                             <img src="../assets/icons/time.png" alt="clock">
+                         </div>
                         <div class="value">${minutes}</div>
                         <div class="dimension">min.</div>
                     </div>
@@ -590,6 +590,7 @@ function createRecipeCard(recipe) {
         </a>
     `;
 }
+createRecipeCard();
 
 },{"./functions/fetchRecipeData":"4FvxE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4FvxE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -623,7 +624,8 @@ async function fetchRecipeData(searchQuery, mealType, cuisineType, dishType, tim
                 mealType: mealType,
                 cuisineType: cuisineType,
                 dishType: dishType,
-                time: time
+                time: time,
+                random: true
             }
         });
         //Store recipe key in variable

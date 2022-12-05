@@ -29,6 +29,14 @@ section {
 .input-choice {
   width: 160px;
   height: 44px;
+  appearance: none;
+  white-space: pre;
+  cursor: default;
+  background-color: #fff;
+  background-image: url("down.d3b6997d.svg");
+  background-position: 120px;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
   border-radius: 3px;
   padding: 0 20px;
 }
@@ -105,6 +113,12 @@ a:hover, a:active {
   overflow: hidden;
 }
 
+.recipe-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .recipe-card__info {
   height: 86px;
   width: 100%;
@@ -167,9 +181,9 @@ a:hover, a:active {
 }
 
 .time-icon {
-  font-size: inherit;
   width: 14px;
   height: 14px;
+  font-size: inherit;
   margin: 0 10px 0 0;
 }
 
@@ -413,7 +427,7 @@ header {
   width: 183px;
   text-align: left;
   background-color: #5f9ea0;
-  background-image: url("instagram.4501520a.png");
+  background-image: url("right-arrow.b6f2d54c.svg");
   background-position: 140px;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -473,7 +487,7 @@ input {
 
 .input-search {
   width: 280px;
-  background-image: url("instagram.f1af0e3e.svg");
+  background-image: url("magnifying-glass-bold.c4d962e1.svg");
   background-position: 240px;
   background-repeat: no-repeat;
   background-size: 16px 16px;
@@ -498,7 +512,7 @@ select {
   height: 44px;
   text-align: left;
   background-color: #70b6be;
-  background-image: url("instagram.4501520a.png");
+  background-image: url("right-arrow.b6f2d54c.svg");
   background-position: 120px;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -600,7 +614,7 @@ footer {
 .search-barcode-btn {
   width: 136px;
   text-align: left;
-  background-image: url("instagram.4501520a.png");
+  background-image: url("right-arrow.b6f2d54c.svg");
   background-position: 90px;
   background-repeat: no-repeat;
   background-size: 20px;

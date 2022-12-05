@@ -25,7 +25,8 @@ export default async function fetchRecipeData(searchQuery, mealType, cuisineType
                 mealType: mealType,
                 cuisineType: cuisineType,
                 dishType: dishType,
-                time: time
+                time: time,
+                random: true
             }
 
         })

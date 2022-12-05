@@ -16,6 +16,8 @@ function createRecipe(recipe) {
     const minutes = recipe.totalTime;
 
     let ingredients = '';
+    let healthLabel = '';
+
     for (const line of recipe.ingredientLines) {
         ingredients += `<li>${line}</li>`;
     }
@@ -27,7 +29,7 @@ function createRecipe(recipe) {
             </div>
             <div class="recipe-property__time page-title-time">
                 <div class="time-icon page-title-time__icon">
-                    <img src="../assets/icons/time.svg" alt="clock">
+                    <img src="../assets/icons/time.png" alt="clock">
                 </div>
                 <div class="value page-title-time__value">${minutes}</div>
                 <div class="dimension">min.</div>
