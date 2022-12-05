@@ -46,6 +46,15 @@ section {
     height: 44px;
     border-radius: 3px;
     padding: 0 20px 0 20px;
+
+    appearance: none;
+    background-image: url("../../assets/icons/down.svg");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: 120px;
+    white-space: pre;
+    background-color: white;
+    cursor: default;
 }
 
 a:link { text-decoration: none;
@@ -128,6 +137,13 @@ a:active { text-decoration: none; }
     overflow: hidden;
 }
 
+.recipe-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
 .recipe-card__info {
     height: 86px;
     width: 100%;
@@ -191,10 +207,11 @@ a:active { text-decoration: none; }
 }
 
 .time-icon {
-    font-size: inherit;
-    margin: 0 10px 0 0;
     width: 14px;
     height: 14px;
+    font-size: inherit;
+    margin: 0 10px 0 0;
+
 
 }
 
@@ -490,7 +507,7 @@ header {
     border: none;
     border-radius: 3px;
 
-    background-image: url("../../assets/icons/instagram.png");
+    background-image: url("../../assets/icons/right-arrow.svg");
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 140px;
@@ -559,7 +576,7 @@ input {
 
 .input-search {
     width: 280px;
-    background-image: url("../../assets/icons/instagram.svg");
+    background-image: url("../../assets/icons/magnifying-glass-bold.svg");
     background-repeat: no-repeat;
     background-size: 16px 16px;
     /*float: right;*/
@@ -593,7 +610,7 @@ select {
     background-color: #70B6BE;
     border-radius: 3px;
 
-    background-image: url("../../assets/icons/instagram.png");
+    background-image: url("../../assets/icons/right-arrow.svg");
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 120px;
@@ -712,7 +729,7 @@ select {
 .search-barcode-btn {
     width: 136px;
     border: 1px solid #283e53;
-    background-image: url("../../assets/icons/instagram.png");
+    background-image: url("../../assets/icons/right-arrow.svg");
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 90px;
