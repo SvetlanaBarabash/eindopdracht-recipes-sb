@@ -2,9 +2,14 @@ import fetchRecipe from './functions/fetchRecipe';
 
 window.addEventListener("load", () => {
     const url = new URL(window.location.href);
+    console.log(url);
     const id = url.searchParams.get("id");
+    console.log(id);
+
 
     fetchRecipe(id).then((recipe) => {
+        console.log(recipe);
+
         const recipeContainer = document.getElementById('recipe-container');
         recipeContainer.innerHTML = createRecipe(recipe);
     })
@@ -16,10 +21,21 @@ function createRecipe(recipe) {
     const minutes = recipe.totalTime;
 
     let ingredients = '';
-    let healthLabel = '';
+    let healthLabels = '';
 
     for (const line of recipe.ingredientLines) {
         ingredients += `<li>${line}</li>`;
+    }
+
+    const nutrientsEnergy = Math.round(recipe.totalNutrients.ENERC_KCAL.quantity);
+    const nutrientsFat = Math.round(recipe.totalNutrients.FAT.quantity);
+    const nutrientsCarbs = Math.round(recipe.totalNutrients.CHOCDF.quantity);
+    const nutrientsSugar = Math.round(recipe.totalNutrients.SUGAR.quantity);
+    const nutrientsProtein = Math.round(recipe.totalNutrients.PROCNT.quantity);
+    const nutrientsSodium = Math.round(recipe.totalNutrients.NA.quantity);
+
+    for (const labelsLine of recipe.healthLabels) {
+        healthLabels += `<div class="health-labels__item"><p>${labelsLine}</p></div>`;
     }
 
     return `
@@ -50,32 +66,7 @@ function createRecipe(recipe) {
                         <h2>Health labels</h2>
 
                     </div>
-                    <div class="health-labels__place">
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                    </div>
+                    <div class="health-labels__place">${healthLabels}</div>
                 </div>
             </div>
 
@@ -96,32 +87,32 @@ function createRecipe(recipe) {
                         <tbody>
                             <tr>
                                 <td colspan="1">Energie</td>
-                                <td colspan="2">1080</td>
+                                <td colspan="2">${nutrientsEnergy}</td>
                                 <td colspan="3">kcal</td>
                             </tr>
                             <tr>
                                 <td colspan="1">Fat</td>
-                                <td colspan="2">80</td>
+                                <td colspan="2">${nutrientsFat}</td>
                                 <td colspan="3">g</td>
                             </tr>
                             <tr>
                                 <td colspan="1">Carbs</td>
-                                <td colspan="2">56</td>
+                                <td colspan="2">${nutrientsCarbs}</td>
                                 <td colspan="3">g</td>
                             </tr>
                             <tr>
                                 <td colspan="1">Sugar</td>
-                                <td colspan="2">20</td>
+                                <td colspan="2">${nutrientsSugar}</td>
                                 <td colspan="3">g</td>
                             </tr>
                             <tr>
                                 <td colspan="1">Proteine</td>
-                                <td colspan="2">15</td>
+                                <td colspan="2">${nutrientsProtein}</td>
                                 <td colspan="3">g</td>
                             </tr>
                             <tr>
                                 <td colspan="1">Sodium</td>
-                                <td colspan="2">1900</td>
+                                <td colspan="2">${nutrientsSodium}</td>
                                 <td colspan="3">mg</td>
                             </tr>
                         </tbody>

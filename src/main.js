@@ -50,7 +50,7 @@ function createRecipeCard(recipe) {
                     </div>
                     <div class="recipe-property__time">
                         <div class="time-icon">
-                             <img src="../assets/icons/time.png" alt="clock">
+                             <img src="../assets/icons/time.svg" alt="clock">
                          </div>
                         <div class="value">${minutes}</div>
                         <div class="dimension">min.</div>

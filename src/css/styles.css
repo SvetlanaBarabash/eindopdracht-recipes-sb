@@ -15,13 +15,18 @@
 /* ------------------------------- 1. Global Styles -------------------------------- */
 
 body {
+    height: 100%;
     padding: 0;
     margin: 0;
 }
 
 .wrapper {
     width: 1920px;
-    height: auto;
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 }
 .outer-container {
     width: 100%;
@@ -46,15 +51,6 @@ section {
     height: 44px;
     border-radius: 3px;
     padding: 0 20px 0 20px;
-
-    appearance: none;
-    background-image: url("../../assets/icons/down.svg");
-    background-size: 16px 16px;
-    background-repeat: no-repeat;
-    background-position: 120px;
-    white-space: pre;
-    background-color: white;
-    cursor: default;
 }
 
 a:link { text-decoration: none;
@@ -70,32 +66,32 @@ a:active { text-decoration: none; }
 /* ------------------------------- 2. Typography ----------------------------------- */
 @font-face {
     font-family: Poppins;
-    src: url("../../assets/fonts/Poppins/Poppins-Regular.ttf");
+    src: url("/assets/fonts/Poppins/Poppins-Regular.ttf");
 }
 
 @font-face {
     font-family: Poppins-bold;
-    src: url("../../assets/fonts/Poppins/Poppins-Bold.ttf");
+    src: url("/assets/fonts/Poppins/Poppins-Bold.ttf");
 }
 
 @font-face {
     font-family: Poppins-Medium;
-    src: url("../../assets/fonts/Poppins/Poppins-Medium.ttf");
+    src: url("/assets/fonts/Poppins/Poppins-Medium.ttf");
 }
 
 @font-face {
     font-family: Poppins-thin;
-    src: url("../../assets/fonts/Poppins/Poppins-Thin.ttf");
+    src: url("/assets/fonts/Poppins/Poppins-Thin.ttf");
 }
 
 @font-face {
     font-family: Poppins-light;
-    src: url("../../assets/fonts/Poppins/Poppins-Light.ttf");
+    src: url("/assets/fonts/Poppins/Poppins-Light.ttf");
 }
 
 @font-face {
     font-family: Austein;
-    src: url("../../assets/fonts/Austein/Austein.ttf");
+    src: url("/assets/fonts/Austein/Austein.ttf");
 }
 
 /* ------------------------------- 3. Layout --------------------------------------- */
@@ -104,7 +100,7 @@ a:active { text-decoration: none; }
 
 
 .glass {
-    background-image: url("../../assets/icons/instagram.svg");
+    background-image: url("../../assets/icons/magnifying-glass-bold.svg");
     width: 25px;
     height: 25px;
     background-repeat: no-repeat;
@@ -132,9 +128,9 @@ a:active { text-decoration: none; }
 
 .recipe-card__image {
     height: 194px;
-    width: 380px;
+    width: 100%;
     background-color: cadetblue;
-    overflow: hidden;
+
 }
 
 .recipe-card__image img {
@@ -142,7 +138,6 @@ a:active { text-decoration: none; }
     height: 100%;
     object-fit: cover;
 }
-
 
 .recipe-card__info {
     height: 86px;
@@ -207,11 +202,10 @@ a:active { text-decoration: none; }
 }
 
 .time-icon {
-    width: 14px;
-    height: 14px;
     font-size: inherit;
     margin: 0 10px 0 0;
-
+    width: 14px;
+    height: 14px;
 
 }
 
@@ -458,12 +452,19 @@ header {
 
 
 /* --------------- 4.2 Main ------------------- */
+
+main {
+    width: 100%;
+    height: auto;
+    flex: 1 1 auto;
+}
+
 /*---------------- Section Intro -------------*/
 
 .intro {
     width: 100%;
     height: 600px;
-    background-image: url("../../assets/hero-image.jpg");
+    background-image: url("/assets/hero-image.jpg");
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -688,7 +689,7 @@ select {
     justify-content: space-between;
 }
 
-.icon {
+.icon a{
     width: 28px;
     height: 28px;
     border-radius: 50%;
@@ -755,7 +756,7 @@ thead {
 
 .product-table th, .product-table td {
     text-align: left;
-    background-color: #70b6be;
+    background-color: #dbedee;
     padding: 0 4px;
 }
 
@@ -812,4 +813,31 @@ thead {
 .line3 {
     padding-bottom: 10px;
 }
+
+
+/* ------------------------------- 4.4 About -------------------------------- */
+
+.page-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 80px 0 50px 0;
+}
+
+.about-title {
+    margin: 20px 0;
+}
+
+.about-subtitle {
+    margin: 20px 0;
+}
+
+.page-text {
+    margin: 20px 0;
+}
+
+.page-text p {
+    margin: 10px 0;
+}
+
 /* ------------------------------- 5. Media Queries -------------------------------- */
