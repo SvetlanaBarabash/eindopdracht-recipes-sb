@@ -1,5 +1,4 @@
 import axios from "axios";
-// import createRecipeCard from "./createRecipeCard";
 
 //Fetching data from Edamam API
 export default async function fetchRecipeData(searchQuery, mealType, cuisineType, dishType, time) {
@@ -35,7 +34,6 @@ export default async function fetchRecipeData(searchQuery, mealType, cuisineType
         const arrayOfRecipes = response.data.hits;
         console.log(arrayOfRecipes);
 
-        // createRecipeCard( arrayOfRecipes );
         return response.data.hits;
 
         //Catch error message and show them in the UI
