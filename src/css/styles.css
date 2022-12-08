@@ -369,24 +369,13 @@ a:active { text-decoration: none; }
 .nutrients-table {
     width: 100%;
     height: auto;
-    padding-right: 14px;
+    /*padding-right: 14px;*/
     margin-top: -5px;
 }
-td[colspan="1"] {
-    text-align: left;
-    width: 80%;
-}
 
 
-td[colspan="2"] {
-    text-align: right;
-    padding-right: 20px;
-}
-
-td[colspan="3"] {
-    text-align: left;
-}
-
+.nutrients-table td:nth-child(2){text-align: right; padding-right: 4px;}
+.nutrients-table td:nth-child(3){text-align: left; padding-left: 12px;}
 
 
 

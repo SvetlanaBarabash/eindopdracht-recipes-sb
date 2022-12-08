@@ -1,15 +1,19 @@
 import axios from "axios";
+// import createRecipeCard from "./createRecipeCard";
 
 //Fetching data from Edamam API
-export default async function fetchRecipeData(searchQuery, mealType, cuisineType, dishType, time) {
+export default async function fetchFoodData (searchBarcode) {
 
     //Declare input values for API
     const RECIPE_URI = "https://api.edamam.com";
-    const RECIPE_ENDPOINT = "/api/recipes/v2";
-    const API_ID = process.env.API_ID;
-    const API_KEY = process.env.API_KEY;
+    const RECIPE_ENDPOINT = "/api/food-database/v2/parser";
+    const API_ID = process.env.API_ID_FD;
+    const API_KEY = process.env.API_KEY_FD;
 
-    console.log({searchQuery, mealType, cuisineType, dishType, time})
+    console.log(API_ID);
+    console.log(API_KEY);
+
+    console.log({searchBarcode})
 
     //If successful than ...
     try {
@@ -20,21 +24,22 @@ export default async function fetchRecipeData(searchQuery, mealType, cuisineType
                 type: "public",
                 app_id: API_ID,
                 app_key: API_KEY,
-                q: searchQuery,
-                mealType: mealType,
-                cuisineType: cuisineType,
-                dishType: dishType,
-                time: time,
-                random: true
+                ingr: searchBarcode,
+                // upc: UpcSearchQuery
             }
 
         })
 
-        //Store recipe key in variable
-        const arrayOfRecipes = response.data.hits;
-        console.log(arrayOfRecipes);
+        console.log(searchBarcode);
+        console.log(response);
 
-        return response.data.hits;
+        //Store food data in variable
+        // const arrayOfFood = response.data.hits;
+        const arrayOfFood = response.data.hints;
+        console.log(arrayOfFood);
+
+        // createRecipeCard( arrayOfRecipes );
+        return arrayOfFood;
 
         //Catch error message and show them in the UI
     } catch (e) {

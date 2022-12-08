@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styles.css">
     <!--<link rel="stylesheet" href="fonts.css">-->
-    <script src="main.js" type="module" defer></script>
+    <script src="calculator.js" type="module" defer></script>
     <title>The Clueless Cook</title>
 </head>
 <body>
@@ -36,9 +36,9 @@
         </div>
         <div class="barcode-search">
         <input id="barcode-product" type="search" name="search" placeholder="Barcode/Product" class="input-choice input-search input-barcode">
-        <button type="submit" class="search-recipes-btn search-barcode-btn">Search</button>
+        <button id="search-barcode" type="submit" class="search-recipes-btn search-barcode-btn">Search</button>
         </div>
-        <table class="product-table">
+        <table id="product-table" class="product-table">
             <colgroup>
                 <col span="1" style="width: 40%">
                 <col span="2" style="width: 30%" >
@@ -50,12 +50,7 @@
                     <th>Label</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Mars</td>
-                    <td>60</td>
-                    <td>Gram</td>
-                </tr>
+            <tbody id="foodTableBody">
             </tbody>
         </table>
     <div>

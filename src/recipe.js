@@ -80,40 +80,40 @@ function createRecipe(recipe) {
                         <h2>Nutrients</h2>
                     </div>
                     <table class="nutrients-table">
-                        <!--                        <colgroup>-->
-                        <!--                            <col span="1" style="width: 60%">-->
-                        <!--                            <col span="2" style="width: 20%" >-->
-                        <!--                        </colgroup>-->
+                        <colgroup>
+                            <col span="1" style="width: 70%">
+                            <col span="2" style="width: 15%" >
+                        </colgroup>
                         <tbody>
                             <tr>
-                                <td colspan="1">Energie</td>
-                                <td colspan="2">${nutrientsEnergy}</td>
-                                <td colspan="3">kcal</td>
+                                <td>Energie</td>
+                                <td>${nutrientsEnergy}</td>
+                                <td>kcal</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Fat</td>
-                                <td colspan="2">${nutrientsFat}</td>
-                                <td colspan="3">g</td>
+                                <td>Fat</td>
+                                <td>${nutrientsFat}</td>
+                                <td>g</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Carbs</td>
-                                <td colspan="2">${nutrientsCarbs}</td>
-                                <td colspan="3">g</td>
+                                <td>Carbs</td>
+                                <td>${nutrientsCarbs}</td>
+                                <td>g</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Sugar</td>
-                                <td colspan="2">${nutrientsSugar}</td>
-                                <td colspan="3">g</td>
+                                <td>Sugar</td>
+                                <td>${nutrientsSugar}</td>
+                                <td>g</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Proteine</td>
-                                <td colspan="2">${nutrientsProtein}</td>
-                                <td colspan="3">g</td>
+                                <td>Proteine</td>
+                                <td>${nutrientsProtein}</td>
+                                <td>g</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Sodium</td>
-                                <td colspan="2">${nutrientsSodium}</td>
-                                <td colspan="3">mg</td>
+                                <td>Sodium</td>
+                                <td>${nutrientsSodium}</td>
+                                <td>mg</td>
                             </tr>
                         </tbody>
                     </table>
