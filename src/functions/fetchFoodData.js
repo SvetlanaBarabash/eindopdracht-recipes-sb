@@ -7,8 +7,8 @@ export default async function fetchFoodData (searchBarcode) {
     //Declare input values for API
     const RECIPE_URI = "https://api.edamam.com";
     const RECIPE_ENDPOINT = "/api/food-database/v2/parser";
-    const API_ID = process.env.API_ID;
-    const API_KEY = process.env.API_KEY;
+    const API_ID = process.env.API_ID_FD;
+    const API_KEY = process.env.API_KEY_FD;
 
     console.log(API_ID);
     console.log(API_KEY);
@@ -41,7 +41,6 @@ export default async function fetchFoodData (searchBarcode) {
         // createRecipeCard( arrayOfRecipes );
         return arrayOfFood;
 
-        /*console.log(response);*/
         //Catch error message and show them in the UI
     } catch (e) {
 
