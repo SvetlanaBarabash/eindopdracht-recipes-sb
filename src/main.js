@@ -1,6 +1,31 @@
 import fetchRecipeData from "./functions/fetchRecipeData";
 
 window.addEventListener("load", () => {
+    let searchIngredients = "tea";
+    fetchRecipeData(searchIngredients).then((data) => {
+        const pictCardList = document.getElementById('recipe-card-list1');
+        pictCardList.innerHTML = '';
+
+        const hits = data.slice(0, 3);
+        for (const hit of hits) {
+            const recipeCard = createRecipeCard(hit.recipe);
+            pictCardList.innerHTML += recipeCard;
+        }
+    });
+
+    searchIngredients = "coffee";
+
+    fetchRecipeData(searchIngredients).then((data) => {
+        const recipeList = document.getElementById('recipe-card-list');
+        recipeList.innerHTML = '';
+
+        const hits = data.slice(0, 6);
+        for (const hit of hits) {
+            const recipeCard = createRecipeCard(hit.recipe);
+            recipeList.innerHTML += recipeCard;
+        }
+    });
+
     const searchBtn = document.getElementById("search-recipes");
     searchBtn.addEventListener('click', (e) => {
         // Prevent form from auto-submitting
