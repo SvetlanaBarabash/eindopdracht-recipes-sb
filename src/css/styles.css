@@ -46,6 +46,10 @@ section {
     position: relative;
 }
 
+p {
+    font-family: Poppins, sans-serif;
+}
+
 .input-choice {
     width: 160px;
     height: 44px;
@@ -417,8 +421,7 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-
-.header__logo{
+.header__logo a{
     font-family: Austein, sans-serif;
     font-size: 30pt;
 }
