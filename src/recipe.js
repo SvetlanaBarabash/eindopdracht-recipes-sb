@@ -1,4 +1,5 @@
 import fetchRecipe from './functions/fetchRecipe';
+import timeIcon from '../assets/icons/time.png';
 
 window.addEventListener("load", () => {
     const url = new URL(window.location.href);
@@ -45,7 +46,7 @@ function createRecipe(recipe) {
             </div>
             <div class="recipe-property__time page-title-time">
                 <div class="time-icon page-title-time__icon">
-                    <img src="../assets/icons/time.png" alt="clock">
+                    <img src="${timeIcon}" alt="clock">
                 </div>
                 <div class="value page-title-time__value">${minutes}</div>
                 <div class="dimension">min.</div>
