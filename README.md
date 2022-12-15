@@ -7,7 +7,7 @@ Do you never know what to cook tonight? And then when you've found a recipe, you
 ![screenshot](screenshot.png "The Clueless Cook")
 
 ## Requirements
-* Edemame food database API KEY
+* Edamam food database API KEY
 * Node.js
 
 ## Getting started

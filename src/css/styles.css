@@ -21,7 +21,7 @@ body {
 }
 
 .wrapper {
-    width: 1920px;
+    max-width: 1920px;
     min-height: 100%;
 
     display: flex;
@@ -30,7 +30,7 @@ body {
 }
 .outer-container {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 section {
@@ -39,9 +39,10 @@ section {
 }
 
 .inner-container {
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     align-items: center;
     position: relative;
 }
@@ -67,7 +68,11 @@ a:visited { text-decoration: none;
 a:hover { text-decoration: none; }
 a:active { text-decoration: none; }
 
+
+
 /* ------------------------------- 2. Typography ----------------------------------- */
+
+
 @font-face {
     font-family: Poppins;
     src: url("/assets/fonts/Poppins/Poppins-Regular.ttf");
@@ -162,10 +167,11 @@ a:active { text-decoration: none; }
 
 .recipe-property {
     width: 100%;
-    hight: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
 }
 
 .recipe-property__line {
@@ -195,7 +201,6 @@ a:active { text-decoration: none; }
 
 .recipe-property__ingredients {
     display: flex;
-    /*flex-direction: row;*/
 }
 
 .recipe-property__time {
@@ -221,6 +226,7 @@ a:active { text-decoration: none; }
 
 /* --------------- 3.2 Other --------------------------- */
 /* --------------- 3.2.1 Recipe-page --------------------------- */
+
 .recipe-container {
     width: 100%;
     height: 100%;
@@ -257,8 +263,8 @@ a:active { text-decoration: none; }
 }
 
 .page-title-time__icon {
-    width: 100%;
-    height: 100%;
+    width: 22px;
+    height: 22px;
     margin: 0 17px 0 0;
 }
 
@@ -278,8 +284,6 @@ a:active { text-decoration: none; }
     justify-content: space-between;
 }
 
-
-
 .recipe-content__left {
     width: 450px;
     height: auto;
@@ -288,10 +292,7 @@ a:active { text-decoration: none; }
 .recipe-content__right {
     width: 400px;
     height: auto;
-
 }
-
-
 
 .ingredients-list {
     font-family: Poppins, sans-serif;
@@ -299,8 +300,6 @@ a:active { text-decoration: none; }
     color: #283e53;
     line-height: 150%;
     margin: 28px 0 40px 0;
-
-
 }
 
 .ingredients-list li {
@@ -373,15 +372,11 @@ a:active { text-decoration: none; }
 .nutrients-table {
     width: 100%;
     height: auto;
-    /*padding-right: 14px;*/
     margin-top: -5px;
 }
 
-
 .nutrients-table td:nth-child(2){text-align: right; padding-right: 4px;}
 .nutrients-table td:nth-child(3){text-align: left; padding-left: 12px;}
-
-
 
 tbody {
     font-family: Poppins, sans-serif;
@@ -396,14 +391,6 @@ tfoot {
     color: black;
     line-height: 200%;
 }
-
-
-
-
-
-
-
-
 
 /* ------------------------------- 4. Areas ---------------------------------------- */
 
@@ -437,11 +424,7 @@ header {
     display: inline;
     font-family: Poppins-bold, sans-serif;
     font-size: 12pt;
-
 }
-
-
-
 
 /* --------------- 4.2 Main ------------------- */
 
@@ -477,7 +460,6 @@ main {
     font-family: Poppins-bold, sans-serif;
     color: white;
     line-height: 80px;
-
 }
 
 .intro-subtitle {
@@ -485,7 +467,6 @@ main {
     font-family: Poppins-light, sans-serif;
     color: white;
     line-height: 80px;
-
 }
 
 .search-button {
@@ -510,13 +491,14 @@ main {
 
 
 .recipe-pictures {
-    width: 1200px;
-    height: 330px;
+    max-width: 1200px;
+    height: auto;
     margin: 0 auto;
 
 }
 
 .picture-cards-place {
+    width: 100%;
     margin-top: -40px;
     display: flex;
     flex-direction: row;
@@ -526,28 +508,30 @@ main {
 }
 
 
-
-
-    /*--------- Section  Recipe-Search -----------------------*/
+/*--------- Section  Recipe-Search -----------------------*/
 
 
 .search-section {
-    background-color: #283E53;
-    height: 126px;
     width: 100%;
+    height: 100%;
+    background-color: #283E53;
 }
 
 .search-bar {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+    /*justify-content: space-between;*/
 
 }
 .search-form {
     width: 100%;
+    min-height: 126px;
     display: flex;
+    /*flex-direction: row;*/
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 
@@ -560,7 +544,6 @@ input {
     background-color: white;
     cursor: text;
     font: 400 16px Poppins, sans-serif;
-    /*padding: 0 20px;*/
     border-width: 0;
     border-style: inset;
     border-color: initial;
@@ -572,12 +555,13 @@ input {
     background-image: url("../../assets/icons/magnifying-glass-bold.svg");
     background-repeat: no-repeat;
     background-size: 16px 16px;
-    /*float: right;*/
     background-position: 240px;
 }
 
 .input-barcode {
     border: 1px solid #283E53;
+    background-position: 240px;
+
     /*margin-right: 24px;*/
 }
 
@@ -615,18 +599,13 @@ select {
 
 .recipe-cards-place {
     width: 100%;
-    height: 700px;
+    min-height: 700px;
     padding: 60px 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-
-
 }
-
-
-
 
 
 
@@ -638,16 +617,16 @@ select {
 }
 
 .footer-info {
-    width: 920px;
-    height: 270px;
-    padding: 46px 0;
-    margin: 0 auto;
+
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
 
-
+    width: 920px;
+    min-height: 270px;
+    padding: 46px 0;
+    margin: 0 auto;
 }
 
 .footer-info__card {
@@ -692,7 +671,12 @@ select {
 }
 
 
-/*-------------------------- 3.2.2 Calorie calculator ---------------------------*/
+/*-------------------------- 4.4 Calorie calculator ---------------------------*/
+
+.inner-calc {
+    align-items: flex-start;
+    min-width: 480px;
+}
 
 .calculator {
     width: 450px;
@@ -730,11 +714,6 @@ select {
     padding-left: 20px;
 }
 
-
-
-
-
-
 thead {
     font-family: Poppins-bold, sans-serif;
     font-size: 16px;
@@ -759,7 +738,7 @@ thead {
 
 .amount-form {
     width: 100%;
-    hight: auto;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -777,6 +756,7 @@ thead {
 
 .add-button {
     width: 100px;
+    border: 1px solid #283e53;
     background-image: none;
 }
 
@@ -807,29 +787,274 @@ thead {
 }
 
 
-/* ------------------------------- 4.4 About -------------------------------- */
+/* ------------------------------- 4.5 About -------------------------------- */
 
 .page-content {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     margin: 80px 0 50px 0;
 }
 
 .about-title {
+    width: 100%;
     margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+article {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .about-subtitle {
+    width: 100%;
     margin: 20px 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .page-text {
+    width: 100%;
+    height: 100%;
     margin: 20px 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .page-text p {
-    margin: 10px 0;
+    width: 100%;
+    height: auto;
+    margin: 14px 0;
+    line-height: 150%;
 }
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
+
+
+@media (max-width: 1260px) {
+
+    .inner-container {
+        padding: 0 20px;
+    }
+
+    header {
+        min-width: 280px;
+    }
+    .header__logo {
+        min-width: 250px;
+    }
+
+    .picture-cards-place {
+        width: 100%;
+        padding: 20px 0;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .recipe-card-section {
+        margin: 20px 0;
+    }
+
+    .recipe-cards-place {
+        padding: 20px 0;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .search-form {
+        width: 100%;
+        padding: 30px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .recipe-card {
+        width: 500px;
+    }
+
+    .footer-info__card {
+        margin-bottom: 20px;
+    }
+
+    .total-table {
+        margin-bottom: 100px;
+    }
+
+}
+
+
+
+@media (max-width: 960px) {
+
+    .footer-info {
+        width: 100%;
+        display: flex;
+        padding: 46px 20px;
+        gap: 20px;
+    }
+
+    .recipe-card {
+        margin: 0;
+    }
+
+    .recipe-container {
+        margin: 100px 0;
+    }
+
+    .recipe-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .recipe-content__left {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .health-labels__place {
+        justify-content: left;
+    }
+
+    .recipe-content__right {
+        width: 100%;
+    }
+
+    .recipe-image {
+        width: 100%;
+
+    }
+
+    .nutrients-table {
+        min-width: 50%;
+    }
+}
+
+
+
+@media (max-width: 648px) {
+
+    .inner-container {
+        width: 100%;
+        height: 100%;
+        padding: 0 20px;
+    }
+
+    .header-content {
+        height: 100%;
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .intro {
+        height: 400px;
+    }
+
+    .intro-content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 40px;
+    }
+
+    .intro-title {
+        font-size: 42px;
+        line-height: 120%;
+    }
+
+    .intro-subtitle {
+        font-size: 42px;
+        line-height: 120%;
+    }
+
+    .intro-content a {
+        display: flex;
+        justify-content: left;
+        margin: 40px 0;
+    }
+
+    .search-button {
+        margin: 0;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .header__menu {
+        width: 100%;
+        gap: 20px;
+    }
+
+        .search-section {
+            margin: 50px 0;
+        }
+
+        .picture-cards-place {
+            display: none;
+        }
+
+        .recipe-card-section {
+            margin: 0 0 50px 0;
+        }
+
+        .calculator {
+            max-width: 100%;
+        }
+
+        .barcode-search {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .input-barcode {
+            width: 100%;
+            background-position: 400px;
+
+        }
+
+        .product-table {
+            width: 100%;
+        }
+
+        .amount-form {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+}
+
+
+@media (max-width: 380px) {
+
+        .header__menu li{
+            font-size: 8pt;
+        }
+
+        .recipe-card {
+            height: auto;
+        }
+
+        .recipe-card__info {
+            height: auto;
+        }
+
+        .recipe-property {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .page-title {
+            font-size: 24px;
+        }
+
+}
