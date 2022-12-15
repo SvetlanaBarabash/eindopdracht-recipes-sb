@@ -1,21 +1,26 @@
 import fetchRecipe from './functions/fetchRecipe';
 import timeIcon from '../assets/icons/time.png';
 
+//Declare EventListener for waiting page loading and continuous main code implementing
 window.addEventListener("load", () => {
+
+    // HTTP link of the downloaded page
     const url = new URL(window.location.href);
-    console.log(url);
+
+    //Extracting recipe id from URL
     const id = url.searchParams.get("id");
-    console.log(id);
 
-
+    // Call function of receiving recipe data with the id
     fetchRecipe(id).then((recipe) => {
         console.log(recipe);
 
+        // Insert recipe info into the page
         const recipeContainer = document.getElementById('recipe-container');
         recipeContainer.innerHTML = createRecipe(recipe);
     })
 });
 
+// Function for creating HTML code of content section of the recipe-page
 function createRecipe(recipe) {
     const image = recipe.image;
     const title = recipe.label;
@@ -24,9 +29,12 @@ function createRecipe(recipe) {
     let ingredients = '';
     let healthLabels = '';
 
+    // Creating list of recipe ingredients
     for (const line of recipe.ingredientLines) {
         ingredients += `<li>${line}</li>`;
     }
+
+    // Creating health labels HTML code with fetched data
 
     const nutrientsEnergy = Math.round(recipe.totalNutrients.ENERC_KCAL.quantity);
     const nutrientsFat = Math.round(recipe.totalNutrients.FAT.quantity);

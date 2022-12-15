@@ -22,6 +22,7 @@ export default async function fetchRecipe(id) {
         })
 
         return response.data.recipe;
+        //Catch error message and show them in the UI
     } catch (e) {
 
         const error = document.getElementById('error-message')

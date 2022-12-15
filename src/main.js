@@ -1,8 +1,12 @@
+//Import function which searching recipes data from RecipeData API
 import fetchRecipeData from "./functions/fetchRecipeData";
 import timeIcon from '../assets/icons/time.png';
 
+//Declare EventListener for waiting page loading and continuous main code implementing
 window.addEventListener("load", () => {
     let searchIngredients = "tea";
+
+    //Fetch data from API for intro Recipe cards
     fetchRecipeData(searchIngredients).then((data) => {
         const pictCardList = document.getElementById('recipe-card-list1');
         pictCardList.innerHTML = '';
@@ -14,34 +18,43 @@ window.addEventListener("load", () => {
         }
     });
 
+    // Fetch data from API for first load of search Recipe cards
     searchIngredients = "coffee";
-
     fetchRecipeData(searchIngredients).then((data) => {
         const recipeList = document.getElementById('recipe-card-list');
         recipeList.innerHTML = '';
 
+        // Choice 6 of case from database answer
         const hits = data.slice(0, 6);
+
+        // Creating recipeCards
         for (const hit of hits) {
             const recipeCard = createRecipeCard(hit.recipe);
             recipeList.innerHTML += recipeCard;
         }
     });
 
+    // Recipe search section
+
+    // Handler of recipe search button
     const searchBtn = document.getElementById("search-recipes");
     searchBtn.addEventListener('click', (e) => {
         // Prevent form from auto-submitting
         e.preventDefault();
 
+        //Declare constants for search form
         const searchIngredients = document.getElementById('search-ingredients').value;
         const mealType = document.getElementById('meal-type-field').value || undefined;
         const cuisine = document.getElementById('cuisine-field').value || undefined;
         const diet = document.getElementById('diet-field').value || undefined;
         const time = document.getElementById('time-field').value || undefined;
 
+        // Search quire to Edamam API
         fetchRecipeData(searchIngredients, mealType, cuisine, diet, time).then((data) => {
             const recipeList = document.getElementById('recipe-card-list');
             recipeList.innerHTML = '';
 
+            // Creating recipeCards from search result
             const hits = data.slice(0, 6);
             for (const hit of hits) {
                 const recipeCard = createRecipeCard(hit.recipe);
@@ -51,6 +64,7 @@ window.addEventListener("load", () => {
     });
 });
 
+// Function to create recipe card for index.html
 function createRecipeCard(recipe) {
     const id = recipe.uri.split("_")[1];
     const image = recipe.image;
@@ -87,4 +101,5 @@ function createRecipeCard(recipe) {
     `;
 }
 
+// Call recipe card create function
 createRecipeCard();

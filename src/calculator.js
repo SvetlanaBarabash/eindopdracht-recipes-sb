@@ -1,23 +1,28 @@
+//Import function which searching product data from FoodBase API
 import fetchFoodData from "./functions/fetchFoodData";
 
+//Declare variables
 let hit;
 let foodTableBody;
 let foodLabel;
 let searchBarcode;
 
-
+//Declare EventListener for waiting page loading and continuous main code implementing
 
 window.addEventListener("load", () => {
     const searchBarcodeBtn = document.getElementById("search-barcode");
 
+//Handler food "Search" button
     searchBarcodeBtn.addEventListener('click', (e) => {
         // Prevent form from auto-submitting
         e.preventDefault();
 
         searchBarcode = document.getElementById('barcode-product').value;
 
+        //Fetching data from Edamam database
         fetchFoodData(searchBarcode).then((data) => {
 
+            //Choice one of case from database answer
             const hits = data.slice(0, 1);
             for (hit of hits) {
 
@@ -29,6 +34,7 @@ window.addEventListener("load", () => {
                 console.log(quantity);
                 console.log(label);
 
+                //Insert food measures into the foodTable
                 foodTableBody = document.getElementById('food-table-body');
                 foodTableBody.innerHTML += `
                         <tr>
@@ -37,15 +43,14 @@ window.addEventListener("load", () => {
                             <td>${label}</td>
                         </tr>
                 `;
-            } //for
-
+            }
+            //Clear search input field
             searchBarcode.value = '';
 
-
-            // console.log(servingQuantity);
         });
     });
 
+    //Creating  food Nutrients table
     const addBtnClick = document.getElementById("add-btn");
 
     let foodCalTotal = 0;
@@ -53,7 +58,9 @@ window.addEventListener("load", () => {
     let foodCarbsTotal = 0;
     let servingQuantity = 0;
 
+    //Handler "Add" button
     addBtnClick.addEventListener('click', (e) => {
+
         // Prevent form from auto-submitting
         e.preventDefault();
 
@@ -61,6 +68,7 @@ window.addEventListener("load", () => {
         let foodFat = hit.food.nutrients.FAT;
         let foodCarbs = hit.food.nutrients.CHOCDF;
 
+        //Handler Amount input field
         servingQuantity = document.getElementById("amount").value;
 
         let foodCalAdd = Math.round(foodCal * servingQuantity);
@@ -69,7 +77,7 @@ window.addEventListener("load", () => {
 
         let foodLabelAdd = hit.food.label;
 
-
+        //Injecting food nutrients into the table
         const totalTableBody = document.getElementById('total-table-body');
         totalTableBody.innerHTML += `
                     <tr>
@@ -83,6 +91,7 @@ window.addEventListener("load", () => {
         foodFatTotal += foodFatAdd;
         foodCarbsTotal += foodCarbsAdd;
 
+        //Calculate and insert summary of nutrients in total row
         const totalTableFoot = document.getElementById('total-table-foot');
         totalTableFoot.innerHTML = `
                         <tr>
@@ -93,21 +102,16 @@ window.addEventListener("load", () => {
                         </tr>
                     `;
 
-        // servingQuantity.value = 0;
-        console.log(servingQuantity);
-
+        //Clearing initial values and input fields
         foodCalAdd = null;
         foodFatAdd = null;
         foodCarbsAdd = null;
-
         servingQuantity = document.getElementById("amount").value;
         searchBarcode = '';
-
-
         foodTableBody.innerHTML = ``;
 
 
-    }); // click Add btn
+    });
 
 });
 
