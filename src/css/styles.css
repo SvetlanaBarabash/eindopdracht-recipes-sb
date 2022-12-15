@@ -128,7 +128,6 @@ a:active { text-decoration: none; }
     margin: 0 0 24px 0;
     overflow: hidden;
     transition: 0.3s;
-
 }
 
 .recipe-card:hover {
@@ -139,7 +138,6 @@ a:active { text-decoration: none; }
     height: 194px;
     width: 100%;
     background-color: cadetblue;
-
 }
 
 .recipe-card__image img {
@@ -171,7 +169,6 @@ a:active { text-decoration: none; }
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
 }
 
 .recipe-property__line {
@@ -215,7 +212,6 @@ a:active { text-decoration: none; }
     margin: 0 10px 0 0;
     width: 14px;
     height: 14px;
-
 }
 
 .time-icon img {
@@ -252,10 +248,8 @@ a:active { text-decoration: none; }
 }
 
 .page-title-time {
-
     color: #283E53;
     font-size: 22px;
-
 }
 
 .page-title-time__value {
@@ -520,17 +514,12 @@ main {
 .search-bar {
     width: 100%;
     height: 100%;
-    /*display: flex;*/
-    /*flex-direction: row;*/
-    /*flex-wrap: wrap;*/
-    /*justify-content: space-between;*/
-
 }
+
 .search-form {
     width: 100%;
     min-height: 126px;
     display: flex;
-    /*flex-direction: row;*/
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -561,8 +550,6 @@ input {
 .input-barcode {
     border: 1px solid #283E53;
     background-position: 240px;
-
-    /*margin-right: 24px;*/
 }
 
 select {
@@ -845,6 +832,7 @@ article {
     header {
         min-width: 280px;
     }
+
     .header__logo {
         min-width: 250px;
     }
@@ -927,7 +915,6 @@ article {
 
     .recipe-image {
         width: 100%;
-
     }
 
     .nutrients-table {
@@ -976,8 +963,6 @@ article {
     }
 
     .intro-content a {
-        display: flex;
-        justify-content: left;
         margin: 40px 0;
     }
 
@@ -986,6 +971,7 @@ article {
     }
 
 }
+
 
 
 @media (max-width: 480px) {
@@ -1057,4 +1043,7 @@ article {
             font-size: 24px;
         }
 
+        .input-search {
+            background-position: 200px;
+        }
 }
