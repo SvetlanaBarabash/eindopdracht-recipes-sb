@@ -1,11 +1,15 @@
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
 .wrapper {
   width: 1920px;
-  height: auto;
+  min-height: 100%;
+  flex-direction: column;
+  margin: 0 auto;
+  display: flex;
 }
 
 .outer-container {
@@ -29,14 +33,6 @@ section {
 .input-choice {
   width: 160px;
   height: 44px;
-  appearance: none;
-  white-space: pre;
-  cursor: default;
-  background-color: #fff;
-  background-image: url("down.d3b6997d.svg");
-  background-position: 120px;
-  background-repeat: no-repeat;
-  background-size: 16px 16px;
   border-radius: 3px;
   padding: 0 20px;
 }
@@ -84,7 +80,7 @@ a:hover, a:active {
   width: 25px;
   height: 25px;
   float: right;
-  background-image: url("instagram.f1af0e3e.svg");
+  background-image: url("magnifying-glass-bold.c4d962e1.svg");
   background-repeat: no-repeat;
   background-size: cover;
   margin-right: 20px;
@@ -108,9 +104,8 @@ a:hover, a:active {
 
 .recipe-card__image {
   height: 194px;
-  width: 380px;
+  width: 100%;
   background-color: #5f9ea0;
-  overflow: hidden;
 }
 
 .recipe-card__image img {
@@ -181,9 +176,9 @@ a:hover, a:active {
 }
 
 .time-icon {
+  font-size: inherit;
   width: 14px;
   height: 14px;
-  font-size: inherit;
   margin: 0 10px 0 0;
 }
 
@@ -335,21 +330,16 @@ a:hover, a:active {
   width: 100%;
   height: auto;
   margin-top: -5px;
-  padding-right: 14px;
 }
 
-td[colspan="1"] {
-  text-align: left;
-  width: 80%;
-}
-
-td[colspan="2"] {
+.nutrients-table td:nth-child(2) {
   text-align: right;
-  padding-right: 20px;
+  padding-right: 4px;
 }
 
-td[colspan="3"] {
+.nutrients-table td:nth-child(3) {
   text-align: left;
+  padding-left: 12px;
 }
 
 tbody, tfoot {
@@ -388,6 +378,12 @@ header {
   font-family: Poppins-bold, sans-serif;
   font-size: 12pt;
   display: inline;
+}
+
+main {
+  width: 100%;
+  height: auto;
+  flex: auto;
 }
 
 .intro {
@@ -576,7 +572,7 @@ footer {
   display: flex;
 }
 
-.icon {
+.icon a {
   width: 28px;
   height: 28px;
   background-color: #70b6be;
@@ -635,7 +631,7 @@ thead {
 
 .product-table th, .product-table td {
   text-align: left;
-  background-color: #70b6be;
+  background-color: #dbedee;
   padding: 0 4px;
 }
 
@@ -694,6 +690,21 @@ thead {
 
 .line3 {
   padding-bottom: 10px;
+}
+
+.page-content {
+  width: 100%;
+  flex-direction: column;
+  margin: 80px 0 50px;
+  display: flex;
+}
+
+.about-title, .about-subtitle, .page-text {
+  margin: 20px 0;
+}
+
+.page-text p {
+  margin: 10px 0;
 }
 
 /*# sourceMappingURL=index.77a9bc14.css.map */

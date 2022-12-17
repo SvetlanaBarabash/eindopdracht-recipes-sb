@@ -580,7 +580,7 @@ function createRecipeCard(recipe) {
                     </div>
                     <div class="recipe-property__time">
                         <div class="time-icon">
-                             <img src="../assets/icons/time.png" alt="clock">
+                             <img src="../assets/icons/time.svg" alt="clock">
                          </div>
                         <div class="value">${minutes}</div>
                         <div class="dimension">min.</div>
@@ -597,14 +597,12 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _createRecipeCard = require("./createRecipeCard");
-var _createRecipeCardDefault = parcelHelpers.interopDefault(_createRecipeCard);
 async function fetchRecipeData(searchQuery, mealType, cuisineType, dishType, time) {
     //Declare input values for API
     const RECIPE_URI = "https://api.edamam.com";
     const RECIPE_ENDPOINT = "/api/recipes/v2";
     const API_ID = "a73cf708";
-    const API_KEY = "883d3d2686f5aa6c6729483c259e195b";
+    const API_KEY = "819ecd083e4c85dcbe617c69b1ffdfdd";
     console.log({
         searchQuery,
         mealType,
@@ -631,9 +629,8 @@ async function fetchRecipeData(searchQuery, mealType, cuisineType, dishType, tim
         //Store recipe key in variable
         const arrayOfRecipes = response.data.hits;
         console.log(arrayOfRecipes);
-        // createRecipeCard( arrayOfRecipes );
         return response.data.hits;
-    /*console.log(response);*/ //Catch error message and show them in the UI
+    //Catch error message and show them in the UI
     } catch (e) {
         const error = document.getElementById("error-message");
         if (e.response.status === 404) error.innerContent = "page not found";
@@ -642,7 +639,7 @@ async function fetchRecipeData(searchQuery, mealType, cuisineType, dishType, tim
 }
 exports.default = fetchRecipeData;
 
-},{"axios":"jo6P5","./createRecipeCard":"ikVUz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
+},{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 module.exports = require("./lib/axios");
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -3997,20 +3994,7 @@ var utils = require("./../utils");
     return utils.isObject(payload) && payload.isAxiosError === true;
 };
 
-},{"./../utils":"5By4s"}],"ikVUz":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function createRecipeCard(arr) {
-    const recipeList = document.getElementById("recipe-card-list");
-    arr.map((item)=>{
-        recipeList.innerHTML += `
-                    <li> ${item.recipe.label} </li>
-                `;
-    });
-}
-exports.default = createRecipeCard;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+},{"./../utils":"5By4s"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a

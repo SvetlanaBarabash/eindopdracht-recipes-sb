@@ -537,8 +537,11 @@ var _fetchRecipe = require("./functions/fetchRecipe");
 var _fetchRecipeDefault = parcelHelpers.interopDefault(_fetchRecipe);
 window.addEventListener("load", ()=>{
     const url = new URL(window.location.href);
+    console.log(url);
     const id = url.searchParams.get("id");
+    console.log(id);
     (0, _fetchRecipeDefault.default)(id).then((recipe)=>{
+        console.log(recipe);
         const recipeContainer = document.getElementById("recipe-container");
         recipeContainer.innerHTML = createRecipe(recipe);
     });
@@ -548,8 +551,15 @@ function createRecipe(recipe) {
     const title = recipe.label;
     const minutes = recipe.totalTime;
     let ingredients = "";
-    let healthLabel = "";
+    let healthLabels = "";
     for (const line of recipe.ingredientLines)ingredients += `<li>${line}</li>`;
+    const nutrientsEnergy = Math.round(recipe.totalNutrients.ENERC_KCAL.quantity);
+    const nutrientsFat = Math.round(recipe.totalNutrients.FAT.quantity);
+    const nutrientsCarbs = Math.round(recipe.totalNutrients.CHOCDF.quantity);
+    const nutrientsSugar = Math.round(recipe.totalNutrients.SUGAR.quantity);
+    const nutrientsProtein = Math.round(recipe.totalNutrients.PROCNT.quantity);
+    const nutrientsSodium = Math.round(recipe.totalNutrients.NA.quantity);
+    for (const labelsLine of recipe.healthLabels)healthLabels += `<div class="health-labels__item"><p>${labelsLine}</p></div>`;
     return `
         <div class="recipe-name-place">
             <div class="page-title">
@@ -578,32 +588,7 @@ function createRecipe(recipe) {
                         <h2>Health labels</h2>
 
                     </div>
-                    <div class="health-labels__place">
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                    </div>
+                    <div class="health-labels__place">${healthLabels}</div>
                 </div>
             </div>
 
@@ -617,40 +602,40 @@ function createRecipe(recipe) {
                         <h2>Nutrients</h2>
                     </div>
                     <table class="nutrients-table">
-                        <!--                        <colgroup>-->
-                        <!--                            <col span="1" style="width: 60%">-->
-                        <!--                            <col span="2" style="width: 20%" >-->
-                        <!--                        </colgroup>-->
+                        <colgroup>
+                            <col span="1" style="width: 70%">
+                            <col span="2" style="width: 15%" >
+                        </colgroup>
                         <tbody>
                             <tr>
-                                <td colspan="1">Energie</td>
-                                <td colspan="2">1080</td>
-                                <td colspan="3">kcal</td>
+                                <td>Energie</td>
+                                <td>${nutrientsEnergy}</td>
+                                <td>kcal</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Fat</td>
-                                <td colspan="2">80</td>
-                                <td colspan="3">g</td>
+                                <td>Fat</td>
+                                <td>${nutrientsFat}</td>
+                                <td>g</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Carbs</td>
-                                <td colspan="2">56</td>
-                                <td colspan="3">g</td>
+                                <td>Carbs</td>
+                                <td>${nutrientsCarbs}</td>
+                                <td>g</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Sugar</td>
-                                <td colspan="2">20</td>
-                                <td colspan="3">g</td>
+                                <td>Sugar</td>
+                                <td>${nutrientsSugar}</td>
+                                <td>g</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Proteine</td>
-                                <td colspan="2">15</td>
-                                <td colspan="3">g</td>
+                                <td>Proteine</td>
+                                <td>${nutrientsProtein}</td>
+                                <td>g</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Sodium</td>
-                                <td colspan="2">1900</td>
-                                <td colspan="3">mg</td>
+                                <td>Sodium</td>
+                                <td>${nutrientsSodium}</td>
+                                <td>mg</td>
                             </tr>
                         </tbody>
                     </table>
@@ -670,7 +655,7 @@ async function fetchRecipe(id) {
     const RECIPE_URI = "https://api.edamam.com";
     const RECIPE_ENDPOINT = `/api/recipes/v2/${id}`;
     const API_ID = "a73cf708";
-    const API_KEY = "883d3d2686f5aa6c6729483c259e195b";
+    const API_KEY = "819ecd083e4c85dcbe617c69b1ffdfdd";
     //If successful than ...
     try {
         //Fetch data from API
