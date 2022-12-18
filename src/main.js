@@ -43,24 +43,29 @@ window.addEventListener("load", () => {
         e.preventDefault();
 
         //Declare constants for search form
-        const searchIngredients = document.getElementById('search-ingredients').value;
+        const searchIngredients = document.getElementById('search-ingredients').value || undefined;
         const mealType = document.getElementById('meal-type-field').value || undefined;
         const cuisine = document.getElementById('cuisine-field').value || undefined;
         const diet = document.getElementById('diet-field').value || undefined;
         const time = document.getElementById('time-field').value || undefined;
 
         // Search quire to Edamam API
-        fetchRecipeData(searchIngredients, mealType, cuisine, diet, time).then((data) => {
-            const recipeList = document.getElementById('recipe-card-list');
-            recipeList.innerHTML = '';
+        if (searchIngredients || mealType || cuisine || diet || time) {
+            fetchRecipeData(searchIngredients, mealType, cuisine, diet, time).then((data) => {
+                const recipeList = document.getElementById('recipe-card-list');
+                recipeList.innerHTML = '';
 
-            // Creating recipeCards from search result
-            const hits = data.slice(0, 20);
-            for (const hit of hits) {
-                const recipeCard = createRecipeCard(hit.recipe);
-                recipeList.innerHTML += recipeCard;
-            }
-        });
+                // Creating recipeCards from search result
+                const hits = data.slice(0, 20);
+                for (const hit of hits) {
+                    const recipeCard = createRecipeCard(hit.recipe);
+                    recipeList.innerHTML += recipeCard;
+                }
+            });
+        }else
+        {
+            alert("Please, fill in at least one search field!")
+        }
     });
 });
 
