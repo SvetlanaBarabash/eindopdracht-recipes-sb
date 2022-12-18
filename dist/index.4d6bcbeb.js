@@ -571,13 +571,13 @@ window.addEventListener("load", ()=>{
         // Prevent form from auto-submitting
         e.preventDefault();
         //Declare constants for search form
-        const searchIngredients = document.getElementById("search-ingredients").value;
+        const searchIngredients = document.getElementById("search-ingredients").value || undefined;
         const mealType = document.getElementById("meal-type-field").value || undefined;
         const cuisine = document.getElementById("cuisine-field").value || undefined;
         const diet = document.getElementById("diet-field").value || undefined;
         const time = document.getElementById("time-field").value || undefined;
         // Search quire to Edamam API
-        (0, _fetchRecipeDataDefault.default)(searchIngredients, mealType, cuisine, diet, time).then((data)=>{
+        if (searchIngredients || mealType || cuisine || diet || time) (0, _fetchRecipeDataDefault.default)(searchIngredients, mealType, cuisine, diet, time).then((data)=>{
             const recipeList = document.getElementById("recipe-card-list");
             recipeList.innerHTML = "";
             // Creating recipeCards from search result
@@ -587,6 +587,7 @@ window.addEventListener("load", ()=>{
                 recipeList.innerHTML += recipeCard;
             }
         });
+        else alert("Please, fill in at least one search field!");
     });
 });
 // Function to create recipe card for index.html
