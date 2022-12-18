@@ -533,22 +533,55 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"gLLPy":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+//Import function which searching recipes data from RecipeData API
 var _fetchRecipeData = require("./functions/fetchRecipeData");
 var _fetchRecipeDataDefault = parcelHelpers.interopDefault(_fetchRecipeData);
+var _timePng = require("../assets/icons/time.png");
+var _timePngDefault = parcelHelpers.interopDefault(_timePng);
+//Declare EventListener for waiting page loading and continuous main code implementing
 window.addEventListener("load", ()=>{
+    let searchIngredients = "tea";
+    //Fetch data from API for intro Recipe cards
+    (0, _fetchRecipeDataDefault.default)(searchIngredients).then((data)=>{
+        const pictCardList = document.getElementById("recipe-card-list1");
+        pictCardList.innerHTML = "";
+        const hits = data.slice(0, 3);
+        for (const hit of hits){
+            const recipeCard = createRecipeCard(hit.recipe);
+            pictCardList.innerHTML += recipeCard;
+        }
+    });
+    // Fetch data from API for first load of search Recipe cards
+    searchIngredients = "coffee";
+    (0, _fetchRecipeDataDefault.default)(searchIngredients).then((data)=>{
+        const recipeList = document.getElementById("recipe-card-list");
+        recipeList.innerHTML = "";
+        // Choice 6 of case from database answer
+        const hits = data.slice(0, 6);
+        // Creating recipeCards
+        for (const hit of hits){
+            const recipeCard = createRecipeCard(hit.recipe);
+            recipeList.innerHTML += recipeCard;
+        }
+    });
+    // Recipe search section
+    // Handler of recipe search button
     const searchBtn = document.getElementById("search-recipes");
     searchBtn.addEventListener("click", (e)=>{
         // Prevent form from auto-submitting
         e.preventDefault();
+        //Declare constants for search form
         const searchIngredients = document.getElementById("search-ingredients").value;
         const mealType = document.getElementById("meal-type-field").value || undefined;
         const cuisine = document.getElementById("cuisine-field").value || undefined;
         const diet = document.getElementById("diet-field").value || undefined;
         const time = document.getElementById("time-field").value || undefined;
+        // Search quire to Edamam API
         (0, _fetchRecipeDataDefault.default)(searchIngredients, mealType, cuisine, diet, time).then((data)=>{
             const recipeList = document.getElementById("recipe-card-list");
             recipeList.innerHTML = "";
-            const hits = data.slice(0, 6);
+            // Creating recipeCards from search result
+            const hits = data.slice(0, 20);
             for (const hit of hits){
                 const recipeCard = createRecipeCard(hit.recipe);
                 recipeList.innerHTML += recipeCard;
@@ -556,6 +589,7 @@ window.addEventListener("load", ()=>{
         });
     });
 });
+// Function to create recipe card for index.html
 function createRecipeCard(recipe) {
     const id = recipe.uri.split("_")[1];
     const image = recipe.image;
@@ -580,7 +614,7 @@ function createRecipeCard(recipe) {
                     </div>
                     <div class="recipe-property__time">
                         <div class="time-icon">
-                             <img src="../assets/icons/time.png" alt="clock">
+                             <img src="${0, _timePngDefault.default}" alt="clock">
                          </div>
                         <div class="value">${minutes}</div>
                         <div class="dimension">min.</div>
@@ -590,21 +624,20 @@ function createRecipeCard(recipe) {
         </a>
     `;
 }
+// Call recipe card create function
 createRecipeCard();
 
-},{"./functions/fetchRecipeData":"4FvxE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4FvxE":[function(require,module,exports) {
+},{"./functions/fetchRecipeData":"4FvxE","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../assets/icons/time.png":"2WCnh"}],"4FvxE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _createRecipeCard = require("./createRecipeCard");
-var _createRecipeCardDefault = parcelHelpers.interopDefault(_createRecipeCard);
 async function fetchRecipeData(searchQuery, mealType, cuisineType, dishType, time) {
     //Declare input values for API
     const RECIPE_URI = "https://api.edamam.com";
     const RECIPE_ENDPOINT = "/api/recipes/v2";
     const API_ID = "a73cf708";
-    const API_KEY = "883d3d2686f5aa6c6729483c259e195b";
+    const API_KEY = "819ecd083e4c85dcbe617c69b1ffdfdd";
     console.log({
         searchQuery,
         mealType,
@@ -631,9 +664,8 @@ async function fetchRecipeData(searchQuery, mealType, cuisineType, dishType, tim
         //Store recipe key in variable
         const arrayOfRecipes = response.data.hits;
         console.log(arrayOfRecipes);
-        // createRecipeCard( arrayOfRecipes );
         return response.data.hits;
-    /*console.log(response);*/ //Catch error message and show them in the UI
+    //Catch error message and show them in the UI
     } catch (e) {
         const error = document.getElementById("error-message");
         if (e.response.status === 404) error.innerContent = "page not found";
@@ -642,7 +674,7 @@ async function fetchRecipeData(searchQuery, mealType, cuisineType, dishType, tim
 }
 exports.default = fetchRecipeData;
 
-},{"axios":"jo6P5","./createRecipeCard":"ikVUz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
+},{"axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jo6P5":[function(require,module,exports) {
 module.exports = require("./lib/axios");
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -3997,20 +4029,7 @@ var utils = require("./../utils");
     return utils.isObject(payload) && payload.isAxiosError === true;
 };
 
-},{"./../utils":"5By4s"}],"ikVUz":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-function createRecipeCard(arr) {
-    const recipeList = document.getElementById("recipe-card-list");
-    arr.map((item)=>{
-        recipeList.innerHTML += `
-                    <li> ${item.recipe.label} </li>
-                `;
-    });
-}
-exports.default = createRecipeCard;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+},{"./../utils":"5By4s"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -4039,6 +4058,43 @@ exports.export = function(dest, destName, get) {
         get: get
     });
 };
+
+},{}],"2WCnh":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("gnRNX") + "time.0223c3ee.png" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
 
 },{}]},["8TtF2","gLLPy"], "gLLPy", "parcelRequire02c0")
 

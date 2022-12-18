@@ -535,21 +535,39 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _fetchRecipe = require("./functions/fetchRecipe");
 var _fetchRecipeDefault = parcelHelpers.interopDefault(_fetchRecipe);
+var _timePng = require("../assets/icons/time.png");
+var _timePngDefault = parcelHelpers.interopDefault(_timePng);
+//Declare EventListener for waiting page loading and continuous main code implementing
 window.addEventListener("load", ()=>{
+    // HTTP link of the downloaded page
     const url = new URL(window.location.href);
+    //Extracting recipe id from URL
     const id = url.searchParams.get("id");
+    // Call function of receiving recipe data with the id
     (0, _fetchRecipeDefault.default)(id).then((recipe)=>{
+        console.log(recipe);
+        // Insert recipe info into the page
         const recipeContainer = document.getElementById("recipe-container");
         recipeContainer.innerHTML = createRecipe(recipe);
     });
 });
+// Function for creating HTML code of content section of the recipe-page
 function createRecipe(recipe) {
     const image = recipe.image;
     const title = recipe.label;
     const minutes = recipe.totalTime;
     let ingredients = "";
-    let healthLabel = "";
+    let healthLabels = "";
+    // Creating list of recipe ingredients
     for (const line of recipe.ingredientLines)ingredients += `<li>${line}</li>`;
+    // Creating health labels HTML code with fetched data
+    const nutrientsEnergy = Math.round(recipe.totalNutrients.ENERC_KCAL.quantity);
+    const nutrientsFat = Math.round(recipe.totalNutrients.FAT.quantity);
+    const nutrientsCarbs = Math.round(recipe.totalNutrients.CHOCDF.quantity);
+    const nutrientsSugar = Math.round(recipe.totalNutrients.SUGAR.quantity);
+    const nutrientsProtein = Math.round(recipe.totalNutrients.PROCNT.quantity);
+    const nutrientsSodium = Math.round(recipe.totalNutrients.NA.quantity);
+    for (const labelsLine of recipe.healthLabels)healthLabels += `<div class="health-labels__item"><p>${labelsLine}</p></div>`;
     return `
         <div class="recipe-name-place">
             <div class="page-title">
@@ -557,7 +575,7 @@ function createRecipe(recipe) {
             </div>
             <div class="recipe-property__time page-title-time">
                 <div class="time-icon page-title-time__icon">
-                    <img src="../assets/icons/time.png" alt="clock">
+                    <img src="${0, _timePngDefault.default}" alt="clock">
                 </div>
                 <div class="value page-title-time__value">${minutes}</div>
                 <div class="dimension">min.</div>
@@ -578,32 +596,7 @@ function createRecipe(recipe) {
                         <h2>Health labels</h2>
 
                     </div>
-                    <div class="health-labels__place">
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                        <div class="health-labels__item">
-                            <p>Peanut-free</p>
-                        </div>
-                    </div>
+                    <div class="health-labels__place">${healthLabels}</div>
                 </div>
             </div>
 
@@ -617,40 +610,40 @@ function createRecipe(recipe) {
                         <h2>Nutrients</h2>
                     </div>
                     <table class="nutrients-table">
-                        <!--                        <colgroup>-->
-                        <!--                            <col span="1" style="width: 60%">-->
-                        <!--                            <col span="2" style="width: 20%" >-->
-                        <!--                        </colgroup>-->
+                        <colgroup>
+                            <col span="1" style="width: 70%">
+                            <col span="2" style="width: 15%" >
+                        </colgroup>
                         <tbody>
                             <tr>
-                                <td colspan="1">Energie</td>
-                                <td colspan="2">1080</td>
-                                <td colspan="3">kcal</td>
+                                <td>Energie</td>
+                                <td>${nutrientsEnergy}</td>
+                                <td>kcal</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Fat</td>
-                                <td colspan="2">80</td>
-                                <td colspan="3">g</td>
+                                <td>Fat</td>
+                                <td>${nutrientsFat}</td>
+                                <td>g</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Carbs</td>
-                                <td colspan="2">56</td>
-                                <td colspan="3">g</td>
+                                <td>Carbs</td>
+                                <td>${nutrientsCarbs}</td>
+                                <td>g</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Sugar</td>
-                                <td colspan="2">20</td>
-                                <td colspan="3">g</td>
+                                <td>Sugar</td>
+                                <td>${nutrientsSugar}</td>
+                                <td>g</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Proteine</td>
-                                <td colspan="2">15</td>
-                                <td colspan="3">g</td>
+                                <td>Proteine</td>
+                                <td>${nutrientsProtein}</td>
+                                <td>g</td>
                             </tr>
                             <tr>
-                                <td colspan="1">Sodium</td>
-                                <td colspan="2">1900</td>
-                                <td colspan="3">mg</td>
+                                <td>Sodium</td>
+                                <td>${nutrientsSodium}</td>
+                                <td>mg</td>
                             </tr>
                         </tbody>
                     </table>
@@ -660,7 +653,7 @@ function createRecipe(recipe) {
     `;
 }
 
-},{"./functions/fetchRecipe":"81RsX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"81RsX":[function(require,module,exports) {
+},{"./functions/fetchRecipe":"81RsX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../assets/icons/time.png":"6t7Uv"}],"81RsX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _axios = require("axios");
@@ -670,7 +663,7 @@ async function fetchRecipe(id) {
     const RECIPE_URI = "https://api.edamam.com";
     const RECIPE_ENDPOINT = `/api/recipes/v2/${id}`;
     const API_ID = "a73cf708";
-    const API_KEY = "883d3d2686f5aa6c6729483c259e195b";
+    const API_KEY = "819ecd083e4c85dcbe617c69b1ffdfdd";
     //If successful than ...
     try {
         //Fetch data from API
@@ -682,6 +675,7 @@ async function fetchRecipe(id) {
             }
         });
         return response.data.recipe;
+    //Catch error message and show them in the UI
     } catch (e) {
         const error = document.getElementById("error-message");
         if (e.response.status === 404) error.innerContent = "page not found";
@@ -4074,6 +4068,43 @@ exports.export = function(dest, destName, get) {
         get: get
     });
 };
+
+},{}],"6t7Uv":[function(require,module,exports) {
+module.exports = require("./helpers/bundle-url").getBundleURL("kPGWe") + "time.0223c3ee.png" + "?" + Date.now();
+
+},{"./helpers/bundle-url":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
 
 },{}]},["ljwTa","5tLmm"], "5tLmm", "parcelRequire02c0")
 
