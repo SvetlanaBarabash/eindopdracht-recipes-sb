@@ -39,7 +39,7 @@ section {
 }
 
 .inner-container {
-    max-width: 1200px;
+    width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -467,18 +467,26 @@ main {
     height: 45px;
     width: 183px;
     margin-top: 30px;
-    font-family: Poppins-bold, sans-serif;
-    font-size: 12pt;
+    font: 400 16px Poppins-bold, sans-serif;
     text-align: left;
     padding-left: 20px;
     background-color: cadetblue;
-    border: none;
+    border: 1px solid #283e53;
     border-radius: 3px;
-
     background-image: url("../../assets/icons/right-arrow.svg");
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: 140px;
+    transition: 0.3s;
+}
+
+.search-button:hover {
+    background-color: #448a8c;
+}
+
+.search-button:active {
+    background-color: #2b6062;
+
 }
 
 /*-------------- Section Recipe-pictures -----------------*/
@@ -567,16 +575,7 @@ select {
 
 .search-recipes-btn {
     width: 160px;
-    height: 44px;
-    text-align: left;
-    padding-left: 20px;
-    font: 400 16px Poppins, sans-serif;
-    background-color: #70B6BE;
-    border-radius: 3px;
-
-    background-image: url("../../assets/icons/right-arrow.svg");
-    background-repeat: no-repeat;
-    background-size: 20px;
+    margin-top: 0;
     background-position: 120px;
 }
 
@@ -692,13 +691,14 @@ select {
 
 .search-barcode-btn {
     width: 136px;
-    border: 1px solid #283e53;
-    background-image: url("../../assets/icons/right-arrow.svg");
-    background-repeat: no-repeat;
-    background-size: 20px;
+    margin-top: 0;
+    /*border: 1px solid #283e53;*/
+    /*background-image: url("../../assets/icons/right-arrow.svg");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: 20px;*/
     background-position: 90px;
-    text-align: left;
-    padding-left: 20px;
+    /*text-align: left;*/
+    /*padding-left: 20px;*/
 }
 
 thead {
@@ -733,7 +733,6 @@ thead {
     font-family: Poppins,sans-serif;
     font-size: 16px;
     margin-bottom: 70px;
-
 }
 
 .amount-field {
@@ -743,7 +742,7 @@ thead {
 
 .add-button {
     width: 100px;
-    border: 1px solid #283e53;
+    margin-top: 0;
     background-image: none;
 }
 
@@ -826,6 +825,8 @@ article {
 @media (max-width: 1260px) {
 
     .inner-container {
+        width: 100%;
+        max-width: 1200px;
         padding: 0 20px;
     }
 

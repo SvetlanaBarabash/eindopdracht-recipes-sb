@@ -55,7 +55,7 @@ window.addEventListener("load", () => {
             recipeList.innerHTML = '';
 
             // Creating recipeCards from search result
-            const hits = data.slice(0, 6);
+            const hits = data.slice(0, 20);
             for (const hit of hits) {
                 const recipeCard = createRecipeCard(hit.recipe);
                 recipeList.innerHTML += recipeCard;
